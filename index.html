@@ -139,19 +139,29 @@ body { background-color:#1a1a24; color:#fff; overflow-x:hidden; }
 /* Footer */
 footer { background-color:#161620; color:#fff; padding:2rem 5%; text-align:center; margin-top:2rem; }
 
-/* Responsive cho điện thoại */
+/* Responsive toàn bộ */
 @media(max-width:768px){
     .main-header { flex-direction:column; gap:1rem; }
     .promo-banner { height:250px; }
     .promo-banner img { height:250px; }
+
+    /* Partner */
     .partner-grid { grid-template-columns:1fr; margin:1rem 3%; }
-    .service-grid { grid-template-columns:1fr; margin:1rem 3%; }
-    .promo-grid { grid-template-columns:1fr; margin:1rem 3%; }
-    .promo-card img.promo-img { width:120px; height:120px; }
     .partner-card img.partner-img { width:100%; height:auto; }
-    .service-card img { width:40px; height:40px; }
+
+    /* Service */
+    .service-grid { grid-template-columns:repeat(auto-fit, minmax(120px,1fr)); margin:1rem 3%; }
+    .service-card img { width:50px; height:50px; }
+
+    /* Promo */
+    .promo-grid { grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); margin:1rem 3%; }
+    .promo-card img.promo-img { width:120px; height:120px; }
+
+    /* Banner Text */
     .banner-text h1 { font-size:2rem; }
     .banner-text p { font-size:1rem; }
+
+    /* Buttons */
     .enter-btn { padding:0.6rem 1.5rem; font-size:0.9rem; }
 }
 </style>
@@ -172,9 +182,7 @@ footer { background-color:#161620; color:#fff; padding:2rem 5%; text-align:cente
     <img src="https://i.pinimg.com/1200x/8c/25/f3/8c25f3fd6dc7a2318c770454c3476c0f.jpg" class="active">
     <img src="https://i.pinimg.com/1200x/9b/6c/e7/9b6ce7daed2f32f92fc37db892954dee.jpg">
     <img src="https://i.pinimg.com/736x/4e/73/9a/4e739afbb60023b5be61f65a37763c61.jpg">
-    <div class="banner-text">
-        
-    </div>
+    <div class="banner-text"></div>
 </div>
 
 <!-- Partner Section -->
