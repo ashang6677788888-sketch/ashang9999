@@ -3,133 +3,302 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ASHANG VIP</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
-
+<title>100VIP - Liên minh cá cược tổng hợp</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
-body{background:#050505;color:#fff;overflow-x:hidden}
+html{
+    scroll-behavior: smooth;
+}
+.promo-card img.promo-img {
+    width: 160px;           
+    height: 160px;
+    border-radius: 50%;    
+    object-fit: cover;     
+    margin-bottom: 0.8rem; 
+    display: block;
 
-/* NAVBAR NEON */
-nav{
-position:fixed;top:0;width:100%;
-display:flex;align-items:center;justify-content:space-between;
-padding:15px 40px;background:#000;
-border-bottom:2px solid #00f7ff;
-box-shadow:0 0 20px #00f7ff;
-z-index:999;
+    /* hiệu ứng nổi */
+    box-shadow: 0 0 25px rgba(255,159,28,0.35);
+    transition: 0.3s;
 }
 
-/* LOGO */
-.logoBox{display:flex;align-items:center;gap:10px}
-.logoBox img{width:40px;height:40px;border-radius:50%}
-.logoText{font-size:26px;font-weight:800;color:#00f7ff}
-
-/* MENU */
-.menu a{
-margin-left:20px;text-decoration:none;color:#fff;font-weight:600;
-padding:8px 15px;border-radius:20px;transition:.3s;
+/* hover phóng nhẹ */
+.promo-card:hover img.promo-img {
+    transform: scale(1.08);
 }
-.menu a:hover{
-box-shadow:0 0 10px #00f7ff,0 0 25px #00f7ff;
-background:#00f7ff;color:#000;
+/* nền mờ phía sau */
+.contact-popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
 }
 
-/* MARQUEE */
-.marquee{flex:1;margin-left:30px;overflow:hidden;white-space:nowrap;color:#ff00ea;font-weight:600}
-.marquee span{display:inline-block;padding-left:100%;animation:marq 15s linear infinite}
-@keyframes marq{100%{transform:translateX(-100%)}}
-
-/* HERO SLIDER */
-.hero{margin-top:80px;height:90vh;position:relative;overflow:hidden}
-.slide{position:absolute;width:100%;height:100%;opacity:0;transition:1s}
-.slide img{width:100%;height:100%;object-fit:cover}
-.active{opacity:1}
-
-.heroText{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
-.heroText h1{font-size:60px;text-shadow:0 0 20px #00f7ff}
-.cta{
-margin-top:20px;padding:14px 35px;border:none;border-radius:30px;
-background:#00f7ff;font-weight:800;font-size:18px;cursor:pointer;
-transition:.3s;text-decoration:none;color:#000;display:inline-block;
+/* khung popup */
+.contact-content {
+    background: #222230;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    width: 300px;
+    position: relative;
 }
-.cta:hover{box-shadow:0 0 15px #00f7ff,0 0 40px #00f7ff}
 
-/* SECTIONS */
-.section{padding:80px 60px;text-align:center}
-.section h2{font-size:40px;margin-bottom:40px;color:#ff00ea}
+/* nút đóng X */
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 22px;
+    cursor: pointer;
+}
 
-/* GRID */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
-.card{overflow:hidden;border-radius:20px;transition:.4s}
-.card img{width:100%;display:block}
-.card:hover{transform:translateY(-10px);box-shadow:0 0 25px #ff00ea,0 0 50px #00f7ff}
+/* nút trong popup */
+.popup-btn {
+    display: block;
+    margin: 15px 0;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.telegram { background:#0088cc; }
+.whatsapp { background:#25D366; }
+
+.popup-btn:hover {
+    transform: scale(1.05);
+}
+.service-card img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+.partner-card img.partner-img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 0.8rem;
+    border: 2px solid #ff9f1c;
+    border-radius: 8px; /* bo nhẹ 8px */
+}
+* { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+body { background-color:#1a1a24; color:#fff; overflow-x:hidden; }
+
+/* Header Menu */
+.main-header { display:flex; justify-content:space-between; align-items:center; padding:1rem 5%; background-color:#161620; position:sticky; top:0; z-index:999; }
+.nav-links a { color:#fff; margin-left:2.5rem; text-decoration:none; font-size:0.95rem; transition:0.3s; }
+.nav-links a:hover { color:#ff9f1c; transform:scale(1.05); }
+.contact-btn { color:#ff9f1c !important; font-weight:600; }
+
+/* Banner Slider */
+.promo-banner { width:100%; height:500px; overflow:hidden; position:relative; border-radius:8px; margin:1rem 0; }
+.promo-banner img { width:100%; height:500px; object-fit:cover; position:absolute; top:0; left:0; opacity:0; transition:1s; }
+.promo-banner img.active { opacity:1; }
+.banner-text { position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); text-align:center; z-index:10; }
+.banner-text h1 { font-size:3rem; color:#ffd700; margin-bottom:1rem; text-shadow:0 0 10px #000; }
+.banner-text p { font-size:1.2rem; margin:0.5rem 0; text-shadow:0 0 8px #000; }
+.highlight-text { color:#00b4ff; font-weight:600; }
+
+/* Partner Section */
+.partner-grid, .service-grid, .promo-grid { display:grid; gap:1.5rem; }
+.partner-grid { grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); margin:2rem 5%; }
+.partner-card, .service-card, .promo-card { background-color:#222230; padding:2rem 1.5rem; border-radius:8px; border:1px solid #2a2a38; display:flex; flex-direction:column; align-items:center; gap:1rem; transition:0.3s; cursor:pointer; }
+.partner-card:hover, .service-card:hover, .promo-card:hover { transform:translateY(-5px); box-shadow:0 10px 20px rgba(255,159,28,0.4); }
+.partner-logo { font-size:1.8rem; font-weight:700; color:#00b4ff; }
+.partner-card p, .service-card p { color:#ccc; font-size:0.95rem; }
+.enter-btn { padding:0.8rem 2rem; background: linear-gradient(45deg, #ff9f1c, #ffd700); color:#1a1a24; border:none; border-radius:5px; font-weight:600; cursor:pointer; transition:0.3s; }
+.enter-btn:hover { background: linear-gradient(45deg, #ffd700, #ff9f1c); transform:scale(1.05); }
+
+/* Service Section */
+.service-grid { grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); margin:2rem 5%; }
+
+/* Promo Section */
+.promo-grid { grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); margin:2rem 5%; }
+/* bỏ khung vuông hoàn toàn */
+.promo-card {
+    background: none;
+    box-shadow: none;
+    border: none;
+    text-align: center;
+    padding: 10px;
+}
+.promo-card:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(255,159,28,0.5); }
+.promo-card h4 { color:#ffd700; font-size:1.2rem; }
+.promo-card p { color:#fff; font-size:0.95rem; }
+
+/* Section Titles */
+.section-title { color:#ff9f1c; font-size:1.3rem; margin-bottom:2rem; position:relative; text-align:center; }
+.section-title::before, .section-title::after { content:"◆"; margin:0 1rem; color:#ff9f1c; }
+
+/* Footer */
+footer { background-color:#161620; color:#fff; padding:2rem 5%; text-align:center; margin-top:2rem; }
+
+/* Responsive cho điện thoại */
+@media(max-width:768px){
+    .main-header { flex-direction:column; gap:1rem; }
+    .promo-banner { height:250px; }
+    .promo-banner img { height:250px; }
+    .partner-grid { grid-template-columns:1fr; margin:1rem 3%; }
+    .service-grid { grid-template-columns:1fr; margin:1rem 3%; }
+    .promo-grid { grid-template-columns:1fr; margin:1rem 3%; }
+    .promo-card img.promo-img { width:120px; height:120px; }
+    .partner-card img.partner-img { width:100%; height:auto; }
+    .service-card img { width:40px; height:40px; }
+    .banner-text h1 { font-size:2rem; }
+    .banner-text p { font-size:1rem; }
+    .enter-btn { padding:0.6rem 1.5rem; font-size:0.9rem; }
+}
 </style>
 </head>
-
 <body>
 
-<nav>
-<div class="logoBox">
-<img src="https://cdn-icons-png.flaticon.com/512/5968/5968804.png">
-<div class="logoText">ASHANG</div>
+<!-- Header Menu -->
+<div class="main-header">
+    <div class="logo"><h2>ASHANGVIP</h2></div>
+    <div class="nav-links">
+        <a href="#home">TRANG CHỦ</a>
+        <a href="#" class="contact-btn" onclick="openContact()">LIÊN HỆ</a>
+    </div>
 </div>
 
-<div class="marquee">
-<span>📍 89 Trần Hưng Đạo • Hotline 0909 999 999 • VIP SERVICE 24/7</span>
+<!-- Banner Slider -->
+<div id="home" class="promo-banner">
+    <img src="https://i.pinimg.com/1200x/8c/25/f3/8c25f3fd6dc7a2318c770454c3476c0f.jpg" class="active">
+    <img src="https://i.pinimg.com/1200x/9b/6c/e7/9b6ce7daed2f32f92fc37db892954dee.jpg">
+    <img src="https://i.pinimg.com/736x/4e/73/9a/4e739afbb60023b5be61f65a37763c61.jpg">
+    <div class="banner-text">
+        
+    </div>
 </div>
 
-<div class="menu">
-<a href="#">Home</a>
-<a href="#ban">Bàn</a>
-<a href="#linhkien">Linh kiện</a>
+<!-- Partner Section -->
+<div class="partner-section">
+    <div class="section-title">ASHANG100VIP</div>
+    <div class="partner-grid">
+        <div class="partner-card">
+            <img src="https://i.pinimg.com/736x/84/cd/37/84cd3791e6b69e28ef10b05a739ad058.jpg" alt="Logo ASHANG" class="partner-img">
+            <p>Từ Tốt Đến Vĩ Đại</p>
+            <a href="https://t.me/ashang295199" target="_blank" class="enter-btn">Nhấn để vào</a>
+        </div>
+        <div class="partner-card">
+            <img src="https://i.pinimg.com/736x/ca/a6/18/caa6185f93925494cef05e6fbac3588d.jpg" alt="Logo ASHANG" class="partner-img">
+            <p>Hãy Thử Và Chiến Thắng</p>
+            <a href="https://t.me/ashang295199" target="_blank" class="enter-btn">Nhấn để vào</a>
+        </div>
+        <div class="partner-card">
+            <img src="https://i.pinimg.com/736x/1c/e9/84/1ce984d58cf4b8db4f8d54e4d1e25caa.jpg" alt="Logo ASHANG" class="partner-img">
+            <p>Đồng Hành Cùng Bạn</p>
+            <a href="https://t.me/ashang295199" target="_blank" class="enter-btn">Nhấn để vào</a>
+        </div>
+        <div class="partner-card">
+            <img src="https://i.pinimg.com/736x/07/e4/7e/07e47e8f735870edc6ffebc05cd55c2a.jpg" alt="Logo ASHANG" class="partner-img">
+            <p>ON 1 Phát,Tất Cả Pháp</p>
+            <a href="https://t.me/ashang295199" target="_blank" class="enter-btn">Nhấn để vào</a>
+        </div>
+        <div class="partner-card">
+            <img src="https://i.pinimg.com/736x/74/3c/43/743c43a85f1dfc008410622f8b3500c0.jpg" alt="Logo ASHANG" class="partner-img">
+            <p>Chào Mừng Bạn Gia Nhập</p>
+            <a href="https://t.me/ashang295199" target="_blank" class="enter-btn">Nhấn để vào</a>
+        </div>
+    </div>
 </div>
-</nav>
 
-<!-- HERO -->
-<div class="hero">
-<div class="slide active"><img src="https://picsum.photos/1920/1080?1"></div>
-<div class="slide"><img src="https://picsum.photos/1920/1080?2"></div>
-<div class="slide"><img src="https://picsum.photos/1920/1080?3"></div>
-<div class="slide"><img src="https://picsum.photos/1920/1080?4"></div>
-<div class="slide"><img src="https://picsum.photos/1920/1080?5"></div>
+<!-- Service Section -->
+<div class="service-section">
+    <div class="section-title">Dịch vụ xung quanh</div>
+    <div class="service-grid">
+        <div class="service-card">
+            <img src="https://i.pinimg.com/736x/75/c3/72/75c3727fe9c6d870a914fcebe7eead9b.jpg" alt="XOÀI TV icon">
+            <p>XOÀI TV</p>
+        </div>
+        <div class="service-card">
+            <img src="https://i.pinimg.com/736x/16/6b/7b/166b7bc4866021195fda32831c9f3d6a.jpg" alt="66TV icon">
+            <p>66TV</p>
+        </div>
+        <div class="service-card">
+            <img src="https://i.pinimg.com/736x/1c/4d/7b/1c4d7bcab0298ff986e3f5a476cd395e.jpg" alt="8ON icon">
+            <p>8ON</p>
+        </div>
+        <div class="service-card">
+            <img src="https://i.pinimg.com/736x/a8/f9/b1/a8f9b1653d70c12cddbaa5c190b3abf0.jpg" alt="PAYVIP icon">
+            <p>PAYVIP</p>
+        </div>
+        <div class="service-card">
+            <img src="https://i.pinimg.com/736x/33/66/88/3366882600206895b953450168020870.jpg" alt="VNPAY icon">
+            <p>VNPAY</p>
+        </div>
+    </div>
+</div>
 
-<div class="heroText">
-<h1>VIP LOUNGE</h1>
-<a class="cta" href="https://t.me/ashang295199" target="_blank">LIÊN HỆ NGAY TELEGRAM</a>
-</div>
+<!-- Promo Section -->
+<div class="promo-section">
+    <div class="section-title">Hoạt động nổi bật</div>
+    <div class="promo-grid">
+        <div class="promo-card">
+            <img src="https://i.pinimg.com/736x/7e/a4/2e/7ea42ec0a4630726a7479bb08654e148.jpg" alt="ONBET Logo" class="promo-img">
+            <h4>100VIP</h4>
+            <p>TĂNG MIỄN PHÍ100%</p>
+        </div>
+        <div class="promo-card">
+            <img src="https://i.pinimg.com/736x/02/79/bb/0279bb642929a4153298dc2e1149f073.jpg" alt="ONBET Logo" class="promo-img">
+            <h4>100VIP</h4>
+            <p>TẶNG MIỄN PHÍ 100%</p>
+        </div>
+        <div class="promo-card">
+            <img src="https://i.pinimg.com/736x/ed/3d/6e/ed3d6e2464d5afa49d7589100f554252.jpg" alt="ONBET Logo" class="promo-img">
+            <h4>100VIP</h4>
+            <p>TẶNG MIỄN PHÍ100%</p>
+        </div>
+        <div class="promo-card">
+            <img src="https://i.pinimg.com/736x/80/97/29/809729f736df3ded196fe8ed6254739e.jpg" alt="ONBET Logo" class="promo-img">
+            <h4>100VIP</h4>
+            <p>TẶNG MIỄN PHÍ 100%</p>
+        </div>
+    </div>
 </div>
 
-<!-- ẢNH BÀN -->
-<div class="section" id="ban">
-<h2>Ảnh bàn VIP</h2>
-<div class="grid">
-<div class="card"><img src="https://picsum.photos/500?1"></div>
-<div class="card"><img src="https://picsum.photos/500?2"></div>
-<div class="card"><img src="https://picsum.photos/500?3"></div>
-</div>
-</div>
-
-<!-- LINH KIỆN -->
-<div class="section" id="linhkien">
-<h2>Linh kiện nổi bật</h2>
-<div class="grid">
-<div class="card"><img src="https://picsum.photos/500?4"></div>
-<div class="card"><img src="https://picsum.photos/500?5"></div>
-<div class="card"><img src="https://picsum.photos/500?6"></div>
-<div class="card"><img src="https://picsum.photos/500?7"></div>
-<div class="card"><img src="https://picsum.photos/500?8"></div>
-</div>
-</div>
+<!-- Footer -->
+<footer>© 2026 100VIP | Liên hệ Telegram: @ashang295199</footer>
 
 <script>
-let slides=document.querySelectorAll(".slide");let i=0;
+// Banner Slider JS
+let slides = document.querySelectorAll('.promo-banner img');
+let currentSlide = 0;
 setInterval(()=>{
-slides[i].classList.remove("active");
-i=(i+1)%slides.length;
-slides[i].classList.add("active");
-},2000);
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+},3000);
+
+// Popup Liên hệ
+function openContact() {
+    document.getElementById("contactPopup").style.display = "flex";
+}
+function closeContact() {
+    document.getElementById("contactPopup").style.display = "none";
+}
 </script>
 
+<!-- POPUP LIÊN HỆ -->
+<div id="contactPopup" class="contact-popup">
+    <div class="contact-content">
+        <span class="close-btn" onclick="closeContact()">×</span>
+        <h3>Liên hệ với chúng tôi</h3>
+
+        <a href="https://t.me/ashang295199" target="_blank" class="popup-btn telegram">
+            Telegram
+        </a>
+
+        <a href="https://wa.me/84912345678" target="_blank" class="popup-btn whatsapp">
+            WhatsApp
+        </a>
+    </div>
+</div>
 </body>
 </html>
